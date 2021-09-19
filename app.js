@@ -8,9 +8,9 @@ submit_btn.addEventListener('click',submitHandler);
 
 function submitHandler()
 {
-    var ip = initialprice.value;
-    var qty = quantity.value;
-    var curr = currentprice.value;
+    var ip = Number(initialprice.value);
+    var qty = Number(quantity.value);
+    var curr = Number(currentprice.value);
     calculate(ip,qty,curr);
 }
 
@@ -21,12 +21,14 @@ function calculate(initial,quantity,current)
         var loss= (initial-current)*quantity;
         var lossPercentage = (loss/initial)*100;
         show_output(` you have made loss of ${loss} and loss percentage of ${lossPercentage}% `);
+        //output_box.style.color('red');
     }
     else if(initial<current)
     {
         var profit = quantity*(current-initial);
         var profitPercentage = (profit/initial)*100;
         show_output(`you have made profit of ${profit} and profit percentage is ${profitPercentage}%`);
+        //output_box.style.color('green');
     }
 
     else
